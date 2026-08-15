@@ -46,7 +46,10 @@
 
 @media (max-width: 900px) {
   .mobile-book {
-    background: var(--floating-rose);
-    box-shadow: 0 10px 30px rgba(116, 66, 77, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: linear-gradient(135deg, #b77f8a 0%, var(--floating-rose) 52%, #925f6b 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 10px 30px rgba(116, 66, 77, 0.3);
   }
 }
