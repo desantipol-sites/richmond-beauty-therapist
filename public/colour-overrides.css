@@ -1,0 +1,52 @@
+:root {
+  --footer-paper: #eadfd8;
+  --footer-ink: #3c3430;
+  --footer-muted: #645954;
+  --cta-taupe: #9d8374;
+  --cta-taupe-light: #aa9283;
+  --floating-rose: #a8707b;
+}
+
+.final-cta {
+  background: linear-gradient(180deg, var(--cta-taupe-light), var(--cta-taupe));
+  color: #fffaf7;
+}
+
+.final-cta .eyebrow {
+  color: #f6e2da;
+}
+
+.final-cta h2 em {
+  color: #f3d8cf;
+}
+
+.final-cta > p:not(.eyebrow) {
+  color: #fff4ef;
+}
+
+.site-footer {
+  border-top: 1px solid rgba(60, 52, 48, 0.12);
+  background: var(--footer-paper);
+  color: var(--footer-ink);
+}
+
+.footer-brand img {
+  filter: brightness(0);
+  opacity: 0.78;
+}
+
+.footer-copy,
+.footer-links {
+  color: var(--footer-muted);
+}
+
+.signature {
+  color: #8d606b;
+}
+
+@media (max-width: 900px) {
+  .mobile-book {
+    background: var(--floating-rose);
+    box-shadow: 0 10px 30px rgba(116, 66, 77, 0.28);
+  }
+}
