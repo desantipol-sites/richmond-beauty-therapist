@@ -4,7 +4,7 @@
 /prices/hands-feet-packages /hands-feet-packages 301
 /prices/pedicure-kart /kart-pedicure 301
 /prices/eyelash-eyebrows /eyelash-eyebrows 301
-/prices/eyelash-extensions /eyelash-extensions 301
+/prices/eyelash-extensions /eyelash-eyebrows 301
 /prices/lash-lift /lash-lift 301
 /prices/medical-pedicure / 301
 /procedure/file-polish /hands-treatment 301
@@ -31,8 +31,8 @@
 /procedure/eyebrow-shape-tint /eyelash-eyebrows 301
 /procedure/eyelash-tint /eyelash-eyebrows 301
 /procedure/eyelash-eyebrow-tint /eyelash-eyebrows 301
-/procedure/eyelash-extension-individual /eyelash-extensions 301
-/procedure/eyelash-extension-top-up /eyelash-extensions 301
+/procedure/eyelash-extension-individual /eyelash-eyebrows 301
+/procedure/eyelash-extension-top-up /eyelash-eyebrows 301
 /procedure/lvl-enhance-lash-lift /lash-lift 301
 /procedure/lvl-enhance-lashlift-eyebrow /lash-lift 301
 /procedure/lvl-enhance-eyebrows /lash-lift 301

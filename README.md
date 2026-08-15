@@ -2,7 +2,7 @@
 
 New mobile-first website for Natalia Pol's Richmond treatment location.
 
-The project is intentionally separate from Surrey Nail Artisan. It uses Richmond's own warm ivory, taupe and blush identity and contains cosmetic nail, pedicure and lash services only. Medical Pedicure is not offered at this location.
+The project is intentionally separate from Surrey Nail Artisan. It uses Richmond's own warm ivory, taupe and blush identity while matching the Surrey cosmetic treatment catalogue and pricing. Medical Pedicure is not offered at this location.
 
 ## Preview status
 

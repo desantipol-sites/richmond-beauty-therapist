@@ -18,11 +18,10 @@ const categories = [
     heroAlt: "Natural manicure result by Natalia Pol in Richmond",
     imageLabel: "Classic manicure",
     services: [
-      ["File & polish", "30 min", "£25", "Careful shaping and a fresh regular polish finish."],
       ["Classic manicure", "45 min", "£50", "Nail and cuticle care, finished with regular colour."],
-      ["IBX and classic manicure", "1 hour", "£55", "Strengthening IBX care with a full classic manicure."],
-      ["Gel manicure", "Removal with new application", "£65", "Existing gel removal, detailed preparation and a fresh gel colour."],
-      ["Gel removal & classic manicure", "Without new application", "£60", "Gentle removal followed by classic nail and cuticle care."]
+      ["IBX & classic manicure", "1 hour", "£55", "Strengthening IBX care with a full classic manicure."],
+      ["Gel manicure (removal with new application)", "1 hour 30 min", "£65", "Existing gel removal, detailed preparation and a fresh gel colour."],
+      ["Gel removal & classic manicure (without new application)", "1 hour", "£60", "Gentle removal followed by classic nail and cuticle care."]
     ],
     faqs: [
       ["Which manicure should I choose?", "Choose classic for regular polish, gel for a longer-lasting colour, or IBX when natural nails need extra care."],
@@ -42,11 +41,11 @@ const categories = [
     heroAlt: "Pedicure treatment result at Richmond Beauty Therapist",
     imageLabel: "Gel pedicure",
     services: [
-      ["Gel removal & classic pedicure", "Without new application", "£65", "Existing gel is removed before a full classic pedicure."],
+      ["Gel removal & classic pedicure (without new application)", "1 hour 15 min", "£65", "Existing gel is removed before a full classic pedicure."],
       ["Classic pedicure", "1 hour", "£65", "Complete nail and cuticle care, scrub and regular colour."],
       ["Gel pedicure", "1 hour 30 min", "£70", "Full preparation with a longer-lasting gel colour finish."],
-      ["Luxury pedicure", "1 hour 30 min · without colour", "£85", "Classic care with scrub and foot mask for a restorative appointment."],
-      ["Luxury pedicure", "1 hour 45 min · with colour", "£95", "Luxury foot care completed with your chosen colour."]
+      ["Luxury pedicure (without colour)", "1 hour 30 min", "£85", "Classic care with scrub and foot mask for a restorative appointment."],
+      ["Luxury pedicure (with colour)", "1 hour 45 min", "£95", "Luxury foot care completed with your chosen colour."]
     ],
     faqs: [
       ["What is the difference between classic and gel?", "Classic uses regular polish. Gel is cured for a longer-lasting finish and needs more application time."],
@@ -66,7 +65,6 @@ const categories = [
     heroAlt: "Coordinated manicure and pedicure treatment in Richmond",
     imageLabel: "Hands & feet",
     services: [
-      ["Male manicure & pedicure", "1 hour 15 min", "£70", "Natural hand and foot grooming without colour."],
       ["Classic manicure & pedicure", "1 hour 45 min", "£90", "Classic care and regular colour for hands and feet."],
       ["Gel manicure & classic pedicure", "2 hours 30 min", "£110", "Gel hands paired with a classic pedicure."],
       ["Classic manicure & gel pedicure", "2 hours 30 min", "£110", "Classic hands paired with a gel pedicure."],
@@ -75,6 +73,31 @@ const categories = [
     faqs: [
       ["Can hands and feet have different colours?", "Yes. Colours can coordinate or be chosen separately."],
       ["Does the package include removal?", "Please add a note if you arrive with existing gel so the required time can be confirmed."],
+      ["Is the appointment private?", "Yes. Natalia sees one client at a time in the Richmond treatment room."]
+    ]
+  },
+  {
+    slug: "male-hands-feet-treatment",
+    name: "Male hands & feet treatment",
+    summary: "Natural grooming and gel options",
+    eyebrow: "Men's manicure and pedicure treatments in Richmond",
+    title: "Careful grooming for hands and feet.",
+    emphasis: "A clean, considered finish.",
+    intro: "Private manicure and pedicure treatments with natural and gel finishes, delivered carefully and without rush.",
+    hero: "work-02.jpg",
+    heroAlt: "Detailed manicure treatment in Richmond",
+    imageLabel: "Men's hand care",
+    services: [
+      ["Classic manicure (no colour)", "30 min", "£40", "Nail shaping and cuticle care with a clean, natural finish."],
+      ["Gel manicure (with colour)", "60–90 min", "£65", "Full manicure preparation completed with gel colour."],
+      ["Male manicure & pedicure", "1 hour 15 min", "£80", "Classic hand and foot care with cuticle work, scrub and cream."],
+      ["Classic manicure & gel pedicure", "2 hours 30 min", "£110", "Natural classic manicure care paired with a gel pedicure."],
+      ["Gel manicure & classic pedicure", "2 hours 30 min", "£110", "Gel manicure paired with a natural classic pedicure."],
+      ["Gel manicure & gel pedicure", "2 hours 30 min", "£125", "Gel colour care for hands and feet in one private appointment."]
+    ],
+    faqs: [
+      ["Can I book without colour?", "Yes. Choose classic manicure or male manicure and pedicure for a natural finish."],
+      ["Are gel colour options available?", "Yes. Gel treatments can be booked for hands, feet or both."],
       ["Is the appointment private?", "Yes. Natalia sees one client at a time in the Richmond treatment room."]
     ]
   },
@@ -90,10 +113,9 @@ const categories = [
     heroAlt: "Professional foot care ritual in Richmond",
     imageLabel: "KART foot care",
     services: [
-      ["Male classic pedicure", "45 min", "£60", "Detailed grooming and a clean natural finish."],
       ["KART pedicure", "1 hour", "£70", "Focused treatment using the professional KART foot-care range."],
-      ["Callus peel", "1 hour", "£70", "Classic pedicure care with targeted treatment for hard skin."],
-      ["KART pedicure with colour", "1 hour 30 min", "£80", "Targeted KART care completed with a fresh colour application."]
+      ["KART pedicure with colour", "1 hour 30 min", "£80", "Targeted KART care completed with a fresh colour application."],
+      ["Callus peel", "1 hour", "£70", "Classic pedicure care with targeted treatment for hard skin."]
     ],
     faqs: [
       ["What is a KART pedicure?", "It is a cosmetic pedicure using professional KART products, selected for dry and hard skin."],
@@ -115,35 +137,14 @@ const categories = [
     services: [
       ["Eyebrow shape", "15 min", "£12", "Careful shaping, with waxing available when requested."],
       ["Eyebrow tint", "15 min", "£13", "A balanced tint chosen around your natural colouring."],
-      ["Eyelash tint", "15 min", "£13", "Darker-looking lashes without daily mascara."],
       ["Eyebrow shape & tint", "30 min", "£25", "Shaping and tinting combined for a polished result."],
+      ["Eyelash tint", "15 min", "£13", "Darker-looking lashes without daily mascara."],
       ["Eyelash & eyebrow tint", "30 min", "£25", "Coordinated tinting for natural-looking definition."]
     ],
     faqs: [
       ["How long does tint usually last?", "Results vary, but eyebrow tint commonly lasts around three to four weeks."],
       ["Can I ask for a subtle result?", "Yes. Colour and definition are selected around your preference."],
       ["Is a patch test required?", "Natalia will confirm patch-test requirements before your appointment where appropriate."]
-    ]
-  },
-  {
-    slug: "eyelash-extensions",
-    name: "Eyelash extensions",
-    summary: "Individual extensions and top-ups",
-    eyebrow: "Eyelash extensions in Richmond",
-    title: "Soft length and definition.",
-    emphasis: "Applied one lash at a time.",
-    intro: "Individual extensions designed around your eye shape and the level of definition you prefer.",
-    hero: "work-02.jpg",
-    heroAlt: "Individual eyelash extensions by Natalia Pol in Richmond",
-    imageLabel: "Individual lashes",
-    services: [
-      ["Individual eyelash extensions", "1 hour 40 min", "£80", "A full individual set tailored to your preferred length and finish."],
-      ["Eyelash extension top-up", "Price confirmed when booking", "See details", "Maintenance for an existing set, timed according to retention and regrowth."]
-    ],
-    faqs: [
-      ["What style can I choose?", "Natalia will discuss length, curl and definition so the result suits your eye shape."],
-      ["When should I book a top-up?", "Timing depends on your natural lash cycle and retention. Book before the set becomes too sparse."],
-      ["Is a patch test required?", "Natalia will confirm any patch-test requirement before your first appointment."]
     ]
   },
   {
@@ -158,9 +159,8 @@ const categories = [
     heroAlt: "Natural lash lift result by Natalia Pol in Richmond",
     imageLabel: "Lash lift",
     services: [
-      ["LVL Enhance / lash lift", "1 hour", "£60", "Natural lashes are lifted and defined for an open-eyed result."],
-      ["LVL Enhance / eyebrows", "1 hour", "£60", "A focused brow treatment for shape and definition."],
-      ["Lash lift and eyebrow", "1 hour", "£80", "Lash lifting combined with eyebrow definition in one appointment."]
+      ["LVL Enhance / lash lift", "1 hour", "£65", "A lash lift with lash tint for fuller-looking natural lashes."],
+      ["LVL Enhance / lash lift & eyebrow", "1 hour", "£80", "Lash lift and tint combined with eyebrow tinting in one appointment."]
     ],
     faqs: [
       ["Does a lash lift use extensions?", "No. It works with your own natural lashes."],
@@ -240,7 +240,7 @@ ${header()}
 <main id="main">
   <section class="hero home-hero">
     <div class="hero-copy"><p class="eyebrow">Richmond Beauty Therapist</p><h1>Looking good is not a luxury.<br><em>It is time reserved for you.</em></h1><p class="hero-intro">Private manicure, pedicure and lash appointments with meticulous preparation, premium products and Natalia's full attention.</p><div class="button-row"><a class="button" href="${booking}" data-book>Book an appointment</a><a class="text-link" href="#services">See treatments</a></div></div>
-    <figure class="hero-media reveal"><img src="assets/hero-nails.jpg" alt="Burgundy manicure by Natalia Pol at Richmond Beauty Therapist"><figcaption>Real work from Richmond</figcaption></figure>
+    <figure class="hero-media reveal"><img src="assets/hero-nails.jpg" alt="Burgundy manicure by Natalia Pol at Richmond Beauty Therapist"><figcaption>Classic manicure</figcaption></figure>
   </section>
 
   <section class="trust-strip" aria-label="Appointment benefits"><p><i></i> One client at a time</p><p><i></i> Natural-looking results</p><p><i></i> Premium products</p><p><i></i> Fully insured</p></section>
@@ -290,7 +290,7 @@ await writeFile(join(out, "_redirects"), `
 /prices/hands-feet-packages /hands-feet-packages 301
 /prices/pedicure-kart /kart-pedicure 301
 /prices/eyelash-eyebrows /eyelash-eyebrows 301
-/prices/eyelash-extensions /eyelash-extensions 301
+/prices/eyelash-extensions /eyelash-eyebrows 301
 /prices/lash-lift /lash-lift 301
 /prices/medical-pedicure / 301
 /procedure/file-polish /hands-treatment 301
@@ -317,8 +317,8 @@ await writeFile(join(out, "_redirects"), `
 /procedure/eyebrow-shape-tint /eyelash-eyebrows 301
 /procedure/eyelash-tint /eyelash-eyebrows 301
 /procedure/eyelash-eyebrow-tint /eyelash-eyebrows 301
-/procedure/eyelash-extension-individual /eyelash-extensions 301
-/procedure/eyelash-extension-top-up /eyelash-extensions 301
+/procedure/eyelash-extension-individual /eyelash-eyebrows 301
+/procedure/eyelash-extension-top-up /eyelash-eyebrows 301
 /procedure/lvl-enhance-lash-lift /lash-lift 301
 /procedure/lvl-enhance-lashlift-eyebrow /lash-lift 301
 /procedure/lvl-enhance-eyebrows /lash-lift 301

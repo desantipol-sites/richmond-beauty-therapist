@@ -35,9 +35,9 @@ Richmond offers cosmetic beauty services only:
 - Hands treatment
 - Feet treatment
 - Hands and feet packages
+- Male hands and feet treatment
 - Pedicure KART
 - Eyelash and eyebrow treatments
-- Eyelash extensions
 - Lash lift
 
 Medical Pedicure is not offered at Richmond and must not appear in visible page content, navigation, structured data or the sitemap.
