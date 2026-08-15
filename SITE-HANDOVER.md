@@ -54,6 +54,8 @@ Medical Pedicure is not offered at Richmond and must not appear in visible page 
 - `public/sitemap.xml`: prepared sitemap
 - `wrangler.jsonc`: Cloudflare static-assets configuration
 
+All photographs and the logo in this project came directly from Natalia's existing Richmond or Surrey Nail Artisan websites. No AI-generated or third-party stock imagery is used.
+
 After editing service data or shared HTML in `build.mjs`, run:
 
 ```text
