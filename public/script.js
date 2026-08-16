@@ -46,9 +46,9 @@ const observer = new IntersectionObserver((entries) => entries.forEach((entry) =
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
 document.querySelectorAll("[data-book]").forEach((link) => link.addEventListener("click", () => {
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: "book_appointment_click",
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", "book_appointment_click", {
+    send_to: "G-RPRJ3EXC0G",
     booking_location: "Richmond",
     booking_url: link.href
   });

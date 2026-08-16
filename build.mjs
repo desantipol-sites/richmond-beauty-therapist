@@ -4,6 +4,7 @@ import { join } from "node:path";
 const out = join(process.cwd(), "public");
 const booking = "https://bookings.gettimely.com/richmondbeautytherapist/bb/book";
 const domain = "https://www.richmondbeautytherapist.co.uk";
+const ga4MeasurementId = "G-RPRJ3EXC0G";
 
 const categories = [
   {
@@ -172,39 +173,105 @@ const categories = [
 
 const esc = (value) => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 
+function structuredData({ title, description, url, image }) {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BeautySalon",
+        "@id": `${domain}/#business`,
+        name: "Richmond Beauty Therapist",
+        url: `${domain}/`,
+        image: `${domain}/assets/hero-nails.jpg`,
+        description: "Private one-to-one manicure, pedicure, KART foot care and lash treatments in Richmond, London.",
+        email: "booking@richmondbeautytherapist.co.uk",
+        priceRange: "££",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Stanmore Road",
+          addressLocality: "Richmond",
+          postalCode: "TW9 2DD",
+          addressCountry: "GB"
+        },
+        founder: {
+          "@type": "Person",
+          name: "Natalia Pol",
+          jobTitle: "Nail Technician"
+        },
+        sameAs: [
+          "https://www.instagram.com/natalia_pol_richmond",
+          "https://www.facebook.com/mobileBeautySalonRichmondSurey/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${domain}/#website`,
+        url: `${domain}/`,
+        name: "Richmond Beauty Therapist",
+        inLanguage: "en-GB",
+        publisher: { "@id": `${domain}/#business` }
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: title,
+        description,
+        inLanguage: "en-GB",
+        isPartOf: { "@id": `${domain}/#website` },
+        about: { "@id": `${domain}/#business` },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${domain}/assets/${image}`
+        }
+      }
+    ]
+  }).replaceAll("<", "\\u003c");
+}
+
 function head({ title, description, path = "", image = "hero-nails.jpg" }) {
   const url = `${domain}/${path}`;
+  const schema = structuredData({ title, description, url, image });
   return `<!doctype html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="description" content="${esc(description)}">
   <meta name="theme-color" content="#fefbf7">
   <link rel="canonical" href="${url}">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
   <meta property="og:site_name" content="Richmond Beauty Therapist">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${domain}/assets/${image}">
+  <meta property="og:image:alt" content="Richmond Beauty Therapist private nail and beauty treatments">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(title)}">
+  <meta name="twitter:description" content="${esc(description)}">
+  <meta name="twitter:image" content="${domain}/assets/${image}">
+  <meta name="twitter:image:alt" content="Richmond Beauty Therapist private nail and beauty treatments">
   <title>${esc(title)}</title>
-  <link rel="icon" href="assets/richmond-logo.png">
+  <link rel="icon" type="image/png" href="assets/richmond-logo.png">
+  <link rel="apple-touch-icon" href="assets/richmond-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&amp;family=Lexend:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="colour-overrides.css">
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W693MNZ4');</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ga4MeasurementId}');</script>
   <script src="script.js" defer></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BeautySalon","name":"Richmond Beauty Therapist","url":"${url}","image":"${domain}/assets/${image}","description":"${esc(description)}","email":"booking@richmondbeautytherapist.co.uk","priceRange":"££","address":{"@type":"PostalAddress","streetAddress":"Stanmore Road","addressLocality":"Richmond","postalCode":"TW9 2DD","addressCountry":"GB"},"founder":{"@type":"Person","name":"Natalia Pol","jobTitle":"Beauty Therapist"},"sameAs":["https://www.instagram.com/natalia_pol_richmond"]}</script>
+  <script type="application/ld+json">${schema}</script>
 </head>`;
 }
 
 function header() {
   return `<body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W693MNZ4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" data-header>
   <a class="brand" href="index.html" aria-label="Richmond Beauty Therapist home"><img src="assets/richmond-logo.png" alt="Richmond Beauty Therapist"></a>
@@ -283,9 +350,11 @@ for (const category of categories) await writeFile(join(out, `${category.slug}.h
 
 const urls = ["", ...categories.map((c) => c.slug)].map((path) => `  <url><loc>${domain}/${path}</loc></url>`).join("\n");
 await writeFile(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
-await writeFile(join(out, "robots.txt"), `User-agent: *\nDisallow: /\n\nSitemap: ${domain}/sitemap.xml\n`);
+await writeFile(join(out, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${domain}/sitemap.xml\n`);
 
 await writeFile(join(out, "_redirects"), `
+/admin/* / 301
+/terms-of-use / 301
 /prices/hands-treatment /hands-treatment 301
 /prices/feet-treatment /feet-treatment 301
 /prices/hands-feet-packages /hands-feet-packages 301
@@ -308,11 +377,11 @@ await writeFile(join(out, "_redirects"), `
 /procedure/gel-manicure-classic-pedicure /hands-feet-packages 301
 /procedure/classic-manicure-gel-pedicure /hands-feet-packages 301
 /procedure/gel-manicure-gel-pedicure /hands-feet-packages 301
-/procedure/male-manicure-pedicure /hands-feet-packages 301
+/procedure/male-manicure-pedicure /male-hands-feet-treatment 301
 /procedure/kart-pedicure /kart-pedicure 301
 /procedure/kart-pedicure-colour /kart-pedicure 301
 /procedure/callus-peel /kart-pedicure 301
-/procedure/male-classic-pedicure /kart-pedicure 301
+/procedure/male-classic-pedicure /male-hands-feet-treatment 301
 /procedure/eyebrow-shape /eyelash-eyebrows 301
 /procedure/eyebrow-tint /eyelash-eyebrows 301
 /procedure/eyebrow-shape-tint /eyelash-eyebrows 301
@@ -324,10 +393,12 @@ await writeFile(join(out, "_redirects"), `
 /procedure/lvl-enhance-lashlift-eyebrow /lash-lift 301
 /procedure/lvl-enhance-eyebrows /lash-lift 301
 /procedure/initial-consultation-routine-treatment / 301
+/procedure/follow-up-ongoing-routine-treatment / 301
 /procedure/diabetic-foot-assessment / 301
 /procedure/ingrowing-nail-post-surgery-assessment / 301
 /procedure/cut-toenails-after-consultation / 301
 /procedure/verruca-treatment-per-session / 301
+/procedure/gel-removal-toes /feet-treatment 301
 `);
 
 console.log(`Generated Richmond homepage and ${categories.length} treatment pages.`);

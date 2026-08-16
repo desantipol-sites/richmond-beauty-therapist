@@ -1,4 +1,6 @@
 
+/admin/* / 301
+/terms-of-use / 301
 /prices/hands-treatment /hands-treatment 301
 /prices/feet-treatment /feet-treatment 301
 /prices/hands-feet-packages /hands-feet-packages 301
@@ -21,11 +23,11 @@
 /procedure/gel-manicure-classic-pedicure /hands-feet-packages 301
 /procedure/classic-manicure-gel-pedicure /hands-feet-packages 301
 /procedure/gel-manicure-gel-pedicure /hands-feet-packages 301
-/procedure/male-manicure-pedicure /hands-feet-packages 301
+/procedure/male-manicure-pedicure /male-hands-feet-treatment 301
 /procedure/kart-pedicure /kart-pedicure 301
 /procedure/kart-pedicure-colour /kart-pedicure 301
 /procedure/callus-peel /kart-pedicure 301
-/procedure/male-classic-pedicure /kart-pedicure 301
+/procedure/male-classic-pedicure /male-hands-feet-treatment 301
 /procedure/eyebrow-shape /eyelash-eyebrows 301
 /procedure/eyebrow-tint /eyelash-eyebrows 301
 /procedure/eyebrow-shape-tint /eyelash-eyebrows 301
@@ -37,7 +39,9 @@
 /procedure/lvl-enhance-lashlift-eyebrow /lash-lift 301
 /procedure/lvl-enhance-eyebrows /lash-lift 301
 /procedure/initial-consultation-routine-treatment / 301
+/procedure/follow-up-ongoing-routine-treatment / 301
 /procedure/diabetic-foot-assessment / 301
 /procedure/ingrowing-nail-post-surgery-assessment / 301
 /procedure/cut-toenails-after-consultation / 301
 /procedure/verruca-treatment-per-session / 301
+/procedure/gel-removal-toes /feet-treatment 301
