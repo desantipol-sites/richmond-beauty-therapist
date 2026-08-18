@@ -44,7 +44,66 @@
   color: #8d606b;
 }
 
+.home-hero h1 {
+  font-size: clamp(3rem, 5.2vw, 5.8rem);
+}
+
+.hero-intro strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.hero-services-badge {
+  position: absolute;
+  z-index: 3;
+  left: 24px;
+  bottom: 24px;
+  display: grid;
+  width: 148px;
+  height: 148px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: 50%;
+  background: rgba(254, 251, 247, 0.72);
+  box-shadow: 0 8px 30px rgba(45, 31, 27, 0.12);
+  backdrop-filter: blur(12px);
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  line-height: 1.45;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.hero-services-badge:hover {
+  background: rgba(254, 251, 247, 0.88);
+  transform: translateY(-3px);
+}
+
 @media (max-width: 900px) {
+  .home-hero h1 {
+    font-size: clamp(2.7rem, 10.8vw, 4.2rem);
+  }
+
+  .home-hero .hero-media {
+    min-height: 0;
+    aspect-ratio: 5 / 6;
+  }
+
+  .home-hero .hero-media img {
+    object-position: center 48%;
+  }
+
+  .hero-services-badge {
+    width: 126px;
+    height: 126px;
+    left: 20px;
+    bottom: 20px;
+    font-size: 0.62rem;
+  }
+
   .mobile-book {
     border: 1px solid rgba(62, 58, 55, 0.48);
     background: linear-gradient(135deg, #eceae7 0%, #c4c1bd 48%, #77736f 100%);
