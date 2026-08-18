@@ -260,7 +260,7 @@ function head({ title, description, path = "", image = "hero-nails.jpg" }) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&amp;family=Lexend:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Lexend:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="colour-overrides.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}"></script>
@@ -285,7 +285,7 @@ function footer() {
   return `<footer class="site-footer" id="contact">
   <div class="footer-brand"><img src="assets/richmond-logo.png" alt="Richmond Beauty Therapist"></div>
   <div class="footer-copy"><p>I’m a fully insured and qualified nail technician with NVQ Level 2 as well as a registered member of The British Association of Foot Health Professionals.</p><p class="signature">Natalia Pol</p></div>
-  <div class="footer-links"><a href="mailto:booking@richmondbeautytherapist.co.uk">booking@richmondbeautytherapist.co.uk</a><span>Stanmore Road, Richmond, TW9 2DD</span><a href="https://www.instagram.com/natalia_pol_richmond" target="_blank" rel="noopener"><span class="instagram" aria-hidden="true">◎</span> Instagram</a></div>
+  <div class="footer-links"><a href="mailto:booking@richmondbeautytherapist.co.uk">booking@richmondbeautytherapist.co.uk</a><span>Stanmore Road, Richmond, TW9 2DD</span><a class="instagram-link" href="https://www.instagram.com/natalia_pol_richmond" target="_blank" rel="noopener"><img class="instagram-icon" src="assets/instagram-icon.png" alt="">Instagram</a></div>
 </footer>
 <a class="mobile-book" href="${booking}" data-book><span>Book now</span></a>
 </body></html>`;
@@ -299,15 +299,15 @@ function serviceRows(services, linked = false, slug = "") {
 }
 
 function homepage() {
-  const accordions = categories.map((category, index) => `<article class="service-accordion${index === 0 ? " is-open" : ""}" data-accordion>
-    <button class="accordion-trigger" type="button" aria-expanded="${index === 0}"><span><strong>${esc(category.name)}</strong><small>${esc(category.summary)}</small></span><i aria-hidden="true"></i></button>
-    <div class="accordion-panel" ${index === 0 ? "" : "hidden"}>${serviceRows(category.services, true, category.slug)}</div>
+  const accordions = categories.map((category) => `<article class="service-accordion${category.slug === "hands-feet-packages" ? " is-featured" : ""}" data-accordion>
+    <button class="accordion-trigger" type="button" aria-expanded="false"><span><strong>${esc(category.name)}</strong><small>${esc(category.summary)}</small></span><i aria-hidden="true"></i></button>
+    <div class="accordion-panel" hidden>${serviceRows(category.services, true, category.slug)}</div>
   </article>`).join("");
   return `${head({title:"Richmond Beauty Therapist | Private Nail & Beauty Appointments", description:"Private one-to-one manicure, pedicure, KART foot care and lash treatments in Richmond, London."})}
 ${header()}
 <main id="main">
   <section class="hero home-hero">
-    <div class="hero-copy"><p class="eyebrow">Richmond Beauty Therapist</p><h1>Welcome to my intimate nail salon.<br><em>Professional care, personally delivered.</em></h1><p class="hero-intro">I offer manicure, pedicure, HEMA- and TPO-free gel polish, lash lift, IBX and KART treatments, using high-quality products. As a <strong>Certified Foot Health Professional</strong>, I take pride in maintaining professional standards while making every visit personal and memorable.</p><div class="button-row"><a class="button" href="${booking}" data-book>Book an appointment</a><a class="text-link" href="#services">See treatments</a></div></div>
+    <div class="hero-copy"><p class="eyebrow">Richmond Nail Technician</p><h1>Welcome to my intimate nail salon.<br><em>Professional care, personally delivered.</em></h1><p class="hero-intro">I offer manicure, pedicure, HEMA- and TPO-free gel polish, lash lift, IBX and KART treatments, using high-quality products. As a <strong>Certified Foot Health Professional</strong>, I take pride in maintaining professional standards while making every visit personal and memorable.</p><div class="button-row"><a class="button" href="${booking}" data-book>Book an appointment</a><a class="text-link" href="#services">See treatments</a></div></div>
     <figure class="hero-media reveal"><img src="assets/hero-nails.jpg" alt="Burgundy manicure by Natalia Pol at Richmond Beauty Therapist"><a class="hero-services-badge" href="#services">See my<br>services</a></figure>
   </section>
 
@@ -322,7 +322,7 @@ ${header()}
 
   <section class="privacy section-pad"><div><p class="eyebrow">The luxury of privacy</p><h2>A beauty appointment<br><em>that feels personal.</em></h2><p>No crowded waiting room and no rushed handover. Natalia welcomes one client at a time.</p></div><div class="privacy-list"><article><i></i><span><h3>Unhurried</h3><p>Time is reserved for your treatment, preferences and questions.</p></span></article><article><i></i><span><h3>Immaculate</h3><p>High-standard hygiene, prepared instruments and a clean private setting.</p></span></article><article><i></i><span><h3>Considered</h3><p>A result selected around you, with practical aftercare.</p></span></article></div></section>
 
-  <section class="studio section-pad" id="studio"><div class="studio-copy"><p class="eyebrow">Natalia's philosophy</p><h2>High standards.<br><em>A calm, memorable visit.</em></h2><div class="studio-copy-body"><p>From the moment you step into my Richmond studio, you are welcomed into a quiet one-to-one setting. I maintain an elevated level of cleanliness, with three levels of sterilisation for instruments and equipment, plus disposable materials where appropriate.</p><p>My goal is to combine skill, high-quality products and close attention to detail so your nails and feet stay healthy, beautifully cared for and the result feels right for you.</p></div><a class="button" href="${booking}" data-book>Book an appointment</a></div><div class="studio-images reveal"><img class="studio-main" src="assets/richmond-studio-original.jpg" alt="The private Richmond beauty treatment studio"><img class="studio-small" src="assets/natalia-standing.jpeg" alt="Natalia Pol in her private treatment studio"><span>Richmond · by appointment</span></div></section>
+  <section class="studio section-pad" id="studio"><div class="studio-copy"><p class="eyebrow">Natalia's philosophy</p><h2>High standards.<br><em>A calm, memorable visit.</em></h2><div class="studio-copy-body"><p>From the moment you step into my Richmond studio, you are welcomed into a quiet one-to-one setting. I maintain an elevated level of cleanliness, with three levels of sterilisation for instruments and equipment, plus disposable materials where appropriate.</p><p>My goal is to combine skill, high-quality products and close attention to detail so your nails and feet stay healthy, beautifully cared for and the result feels right for you.</p></div><a class="button" href="${booking}" data-book>Book an appointment</a></div><div class="studio-images reveal"><img class="studio-main" src="assets/richmond-studio-original.jpg" alt="The private Richmond nail treatment studio"><div class="studio-small-frame"><img class="studio-small" src="assets/natalia-standing.jpeg" alt="Natalia Pol in her private treatment studio"></div><span>Richmond · by appointment</span></div></section>
 
   <section class="final-cta"><p class="eyebrow">Your appointment</p><h2>Ready for a little time<br><em>that is entirely yours?</em></h2><p>Private nail, pedicure and lash treatments in Richmond.</p><a class="button button-light" href="${booking}" data-book>Book now</a></section>
 </main>

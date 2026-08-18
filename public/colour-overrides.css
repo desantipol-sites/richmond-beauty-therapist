@@ -25,12 +25,17 @@
 }
 
 .site-footer {
+  grid-template-columns: 1fr;
+  gap: 26px;
+  align-items: start;
   border-top: 1px solid rgba(60, 52, 48, 0.12);
   background: var(--footer-paper);
   color: var(--footer-ink);
 }
 
 .footer-brand img {
+  width: min(280px, 76vw);
+  max-width: none;
   filter: brightness(0);
   opacity: 0.78;
 }
@@ -40,8 +45,43 @@
   color: var(--footer-muted);
 }
 
+.footer-copy {
+  width: 100%;
+  max-width: none;
+}
+
+.footer-copy > p:first-child {
+  max-width: 900px;
+  margin-bottom: 0;
+}
+
 .signature {
   color: #8d606b;
+  text-align: right;
+}
+
+.footer-links {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(60, 52, 48, 0.12);
+  text-align: left;
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.instagram-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
 .home-hero h1 {
@@ -56,11 +96,11 @@
 .hero-services-badge {
   position: absolute;
   z-index: 3;
-  left: 24px;
-  bottom: 24px;
+  top: 24px;
+  right: 20px;
   display: grid;
-  width: 148px;
-  height: 148px;
+  width: 126px;
+  height: 126px;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.46);
   border-radius: 50%;
@@ -82,6 +122,14 @@
   transform: translateY(-3px);
 }
 
+.service-accordion.is-featured .accordion-trigger strong {
+  font-weight: 600;
+}
+
+.reveal {
+  transition-duration: 1.15s;
+}
+
 @media (max-width: 900px) {
   .home-hero h1 {
     font-size: clamp(2.7rem, 10.8vw, 4.2rem);
@@ -97,11 +145,32 @@
   }
 
   .hero-services-badge {
-    width: 126px;
-    height: 126px;
-    left: 20px;
-    bottom: 20px;
+    top: 18px;
+    right: 12px;
+    left: auto;
+    bottom: auto;
+    width: 108px;
+    height: 108px;
     font-size: 0.62rem;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(2rem, 7.6vw, 3.2rem);
+  }
+
+  .studio-small-frame {
+    width: 50%;
+    height: 44%;
+  }
+
+  .site-footer {
+    gap: 22px;
+    padding: 45px 20px 95px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .mobile-book {
@@ -129,9 +198,32 @@
 }
 
 .studio-main {
-  object-position: center center;
+  object-position: center 74%;
 }
 
-.studio-small {
-  object-position: center 18%;
+.studio-small-frame {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  height: 46%;
+  overflow: hidden;
+  border: 10px solid var(--sand);
+}
+
+.studio-small-frame .studio-small {
+  position: static;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  object-position: center 25%;
+  transform: scale(1.17);
+}
+
+@media (max-width: 900px) {
+  .studio-small-frame {
+    width: 50%;
+    height: 44%;
+  }
 }
