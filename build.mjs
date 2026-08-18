@@ -307,7 +307,7 @@ function homepage() {
 ${header()}
 <main id="main">
   <section class="hero home-hero">
-    <div class="hero-copy"><p class="eyebrow">Richmond Nail Technician</p><h1>Welcome to my intimate nail salon.<br><em>Professional care, personally delivered.</em></h1><p class="hero-intro">I offer manicure, pedicure, HEMA- and TPO-free gel polish, lash lift, IBX and KART treatments, using high-quality products. As a <strong>Certified Foot Health Professional</strong>, I take pride in maintaining professional standards while making every visit personal and memorable.</p><div class="button-row"><a class="button" href="${booking}" data-book>Book an appointment</a><a class="text-link" href="#services">See treatments</a></div></div>
+    <div class="hero-copy"><p class="eyebrow">Richmond Nail Technician</p><h1>Welcome to my intimate nail salon.<br><em>Professional care, personally delivered.</em></h1><p class="hero-intro">I offer manicure, pedicure, HEMA- and TPO-free gel polish, lash lift, IBX and KART treatments, using high-quality products. As a <strong>Certified Foot Health Professional</strong>, I take pride in maintaining professional standards while making every visit personal and memorable.</p><div class="button-row"><a class="button" href="${booking}" data-book>Book an appointment</a></div></div>
     <figure class="hero-media reveal"><img src="assets/hero-nails.jpg" alt="Burgundy manicure by Natalia Pol at Richmond Beauty Therapist"><a class="hero-services-badge" href="#services">See my<br>services</a></figure>
   </section>
 
