@@ -123,7 +123,18 @@
 }
 
 .service-accordion.is-featured .accordion-trigger strong {
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.service-row b {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.service-meta strong {
+  color: var(--muted);
+  font-size: 1.45rem;
+  font-weight: 400;
 }
 
 .reveal {
